@@ -6,6 +6,25 @@ import { AIChatModelCard } from '@/types/aiModel';
 const groqChatModels: AIChatModelCard[] = [
   {
     contextWindowTokens: 131_072,
+    description:
+      'Compound-beta 是一个复合 AI 系统，由 GroqCloud 中已经支持的多个开放可用的模型提供支持，可以智能地、有选择地使用工具来回答用户查询。',
+    displayName: 'Compound Beta',
+    enabled: true,
+    id: 'compound-beta',
+    maxOutput: 8192,
+    type: 'chat',
+  },
+  {
+    contextWindowTokens: 131_072,
+    description:
+      'Compound-beta-mini 是一个复合 AI 系统，由 GroqCloud 中已经支持的公开可用模型提供支持，可以智能地、有选择地使用工具来回答用户查询。',
+    displayName: 'Compound Beta Mini',
+    id: 'compound-beta-mini',
+    maxOutput: 8192,
+    type: 'chat',
+  },
+  {
+    contextWindowTokens: 131_072,
     displayName: 'Llama 4 Scout (17Bx16E)',
     enabled: true,
     id: 'meta-llama/llama-4-scout-17b-16e-instruct',
@@ -71,21 +90,6 @@ const groqChatModels: AIChatModelCard[] = [
   {
     abilities: {
       functionCall: true,
-      reasoning: true,
-    },
-    contextWindowTokens: 131_072,
-    displayName: 'DeepSeek R1 Distill Qwen 32B',
-    id: 'deepseek-r1-distill-qwen-32b',
-    maxOutput: 16_384,
-    pricing: {
-      input: 0.69,
-      output: 0.69,
-    },
-    type: 'chat',
-  },
-  {
-    abilities: {
-      functionCall: true,
     },
     contextWindowTokens: 8192,
     description: 'Gemma 2 9B 是一款优化用于特定任务和工具整合的模型。',
@@ -102,7 +106,8 @@ const groqChatModels: AIChatModelCard[] = [
       functionCall: true,
     },
     contextWindowTokens: 131_072,
-    description: 'Llama 3.1 8B 是一款高效能模型，提供了快速的文本生成能力，非常适合需要大规模效率和成本效益的应用场景。',
+    description:
+      'Llama 3.1 8B 是一款高效能模型，提供了快速的文本生成能力，非常适合需要大规模效率和成本效益的应用场景。',
     displayName: 'Llama 3.1 8B Instant',
     id: 'llama-3.1-8b-instant',
     maxOutput: 8192,
@@ -114,73 +119,11 @@ const groqChatModels: AIChatModelCard[] = [
   },
   {
     abilities: {
-      vision: true,
-    },
-    contextWindowTokens: 131_072,
-    description: 'Llama 3.2 旨在处理结合视觉和文本数据的任务。它在图像描述和视觉问答等任务中表现出色，跨越了语言生成和视觉推理之间的鸿沟。',
-    displayName: 'Llama 3.2 11B Vision (Preview)',
-    id: 'llama-3.2-11b-vision-preview',
-    maxOutput: 8192,
-    pricing: {
-      input: 0.18,
-      output: 0.18,
-    },
-    type: 'chat',
-  },
-  {
-    abilities: {
-      vision: true,
-    },
-    contextWindowTokens: 131_072,
-    description: 'Llama 3.2 旨在处理结合视觉和文本数据的任务。它在图像描述和视觉问答等任务中表现出色，跨越了语言生成和视觉推理之间的鸿沟。',
-    displayName: 'Llama 3.2 90B Vision (Preview)',
-    enabled: true,
-    id: 'llama-3.2-90b-vision-preview',
-    maxOutput: 8192,
-    pricing: {
-      input: 0.9,
-      output: 0.9,
-    },
-    type: 'chat',
-  },
-  {
-    contextWindowTokens: 131_072,
-    displayName: 'Llama 3.2 1B (Preview)',
-    id: 'llama-3.2-1b-preview',
-    maxOutput: 8192,
-    pricing: {
-      input: 0.04,
-      output: 0.04,
-    },
-    type: 'chat',
-  },
-  {
-    contextWindowTokens: 131_072,
-    displayName: 'Llama 3.2 3B (Preview)',
-    id: 'llama-3.2-3b-preview',
-    maxOutput: 8192,
-    pricing: {
-      input: 0.06,
-      output: 0.06,
-    },
-    type: 'chat',
-  },
-  {
-    contextWindowTokens: 8192,
-    displayName: 'Llama 3.3 70B SpecDec',
-    id: 'llama-3.3-70b-specdec',
-    pricing: {
-      input: 0.59,
-      output: 0.99,
-    },
-    type: 'chat',
-  },
-  {
-    abilities: {
       functionCall: true,
     },
     contextWindowTokens: 131_072,
-    description: 'Meta Llama 3.3 多语言大语言模型 ( LLM ) 是 70B（文本输入/文本输出）中的预训练和指令调整生成模型。 Llama 3.3 指令调整的纯文本模型针对多语言对话用例进行了优化，并且在常见行业基准上优于许多可用的开源和封闭式聊天模型。',
+    description:
+      'Meta Llama 3.3 多语言大语言模型 ( LLM ) 是 70B（文本输入/文本输出）中的预训练和指令调整生成模型。 Llama 3.3 指令调整的纯文本模型针对多语言对话用例进行了优化，并且在常见行业基准上优于许多可用的开源和封闭式聊天模型。',
     displayName: 'Llama 3.3 70B Versatile',
     id: 'llama-3.3-70b-versatile',
     maxOutput: 32_768,
@@ -233,29 +176,6 @@ const groqChatModels: AIChatModelCard[] = [
     pricing: {
       input: 0.24,
       output: 0.24,
-    },
-    type: 'chat',
-  },
-  {
-    abilities: {
-      functionCall: true,
-    },
-    contextWindowTokens: 131_072,
-    displayName: 'Qwen 2.5 32B',
-    id: 'qwen-2.5-32b',
-    pricing: {
-      input: 0.79,
-      output: 0.79,
-    },
-    type: 'chat',
-  },
-  {
-    contextWindowTokens: 131_072,
-    displayName: 'Qwen 2.5 Coder 32B',
-    id: 'qwen-2.5-coder-32b',
-    pricing: {
-      input: 0.79,
-      output: 0.79,
     },
     type: 'chat',
   },
