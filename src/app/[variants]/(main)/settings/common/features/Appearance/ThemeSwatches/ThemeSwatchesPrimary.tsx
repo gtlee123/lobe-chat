@@ -2,19 +2,17 @@ import { ColorSwatches, PrimaryColors, findCustomThemeName, primaryColors } from
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { useUserStore } from '@/store/user';
-import { userGeneralSettingsSelectors } from '@/store/user/selectors';
+interface IProps {
+  onChange?: (v: PrimaryColors) => void;
+  value?: PrimaryColors;
+}
 
-const ThemeSwatchesPrimary = memo(() => {
+const ThemeSwatchesPrimary = memo<IProps>(({ onChange, value }) => {
   const { t } = useTranslation('color');
-  const [primaryColor, updateGeneralConfig] = useUserStore((s) => [
-    userGeneralSettingsSelectors.primaryColor(s),
-    s.updateGeneralConfig,
-  ]);
 
   const handleSelect = (v: any) => {
     const name = findCustomThemeName('primary', v) as PrimaryColors;
-    updateGeneralConfig({ primaryColor: name || '' });
+    onChange?.(name || '');
   };
 
   return (
@@ -74,7 +72,7 @@ const ThemeSwatchesPrimary = memo(() => {
         },
       ]}
       onChange={handleSelect}
-      value={primaryColor ? primaryColors[primaryColor] : undefined}
+      value={value ? primaryColors[value] : undefined}
     />
   );
 });

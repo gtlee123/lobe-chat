@@ -2,20 +2,17 @@ import { ColorSwatches, NeutralColors, findCustomThemeName, neutralColors } from
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { useUserStore } from '@/store/user';
-import { userGeneralSettingsSelectors } from '@/store/user/selectors';
+interface IProps {
+  onChange?: (v: NeutralColors) => void;
+  value?: NeutralColors;
+}
 
-const ThemeSwatchesNeutral = memo(() => {
+const ThemeSwatchesNeutral = memo<IProps>(({ value, onChange }) => {
   const { t } = useTranslation('color');
-
-  const [neutralColor, updateGeneralConfig] = useUserStore((s) => [
-    userGeneralSettingsSelectors.neutralColor(s),
-    s.updateGeneralConfig,
-  ]);
 
   const handleSelect = (v: any) => {
     const name = findCustomThemeName('neutral', v) as NeutralColors;
-    updateGeneralConfig({ neutralColor: name || '' });
+    onChange?.(name || '');
   };
 
   return (
@@ -47,7 +44,7 @@ const ThemeSwatchesNeutral = memo(() => {
         },
       ]}
       onChange={handleSelect}
-      value={neutralColor ? neutralColors[neutralColor] : undefined}
+      value={value ? neutralColors[value] : undefined}
     />
   );
 });
